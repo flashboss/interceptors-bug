@@ -76,11 +76,6 @@
 							<goal>test</goal>
 						</goals>
 						<configuration>
-							<!-- Tests to execute. Overriden in webProfileExclusion.profile . -->
-							<includes>
-								<include>it/vige/injection/test/*TestCase.java</include>
-							</includes>
-
 							<!-- Parameters to test cases. -->
 							<systemPropertyVariables
 								combine.children="append">
