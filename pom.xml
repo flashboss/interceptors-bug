@@ -12,19 +12,10 @@
 		<org.wildfly.as.version>13.0.0.Final</org.wildfly.as.version>
 		<maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
 		<javaee.version>8.0</javaee.version>
-		<org.wildfly.core.version></org.wildfly.core.version>
 		<org.wildfly.arquillian.version>2.1.1.Final</org.wildfly.arquillian.version>
 	</properties>
 
 	<build>
-		<testResources>
-			<testResource>
-				<directory>src/test/java</directory>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</testResource>
-		</testResources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -93,7 +84,6 @@
 							<!-- Parameters to test cases. -->
 							<systemPropertyVariables
 								combine.children="append">
-								<jboss.server.config.file.name>standalone-full.xml</jboss.server.config.file.name>
 								<jboss.options>-Dee8.preview.mode=true</jboss.options>
 							</systemPropertyVariables>
 						</configuration>
@@ -105,7 +95,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-
 			<dependency>
 				<groupId>org.wildfly.arquillian</groupId>
 				<artifactId>wildfly-arquillian-parent</artifactId>
@@ -113,13 +102,6 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-
-			<dependency>
-				<groupId>org.wildfly.arquillian</groupId>
-				<artifactId>wildfly-arquillian-container-managed</artifactId>
-				<version>${org.wildfly.arquillian.version}</version>
-			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
 
@@ -140,6 +122,7 @@
 		<dependency>
 			<groupId>org.wildfly.arquillian</groupId>
 			<artifactId>wildfly-arquillian-container-managed</artifactId>
+			<version>${org.wildfly.arquillian.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
