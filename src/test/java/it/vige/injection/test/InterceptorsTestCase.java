@@ -2,6 +2,7 @@ package it.vige.injection.test;
 
 import static java.util.logging.Logger.getLogger;
 import static org.jboss.shrinkwrap.api.ShrinkWrap.create;
+import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.util.logging.Logger;
@@ -39,10 +40,10 @@ public class InterceptorsTestCase {
 	public void testInterceptor() {
 		logger.info("Start interceptor test");
 		String item = "testItem";
-		//try {
+		try {
 			itemService.create(item);
-		/*} catch (javax.ejb.EJBException e) {
+		} catch (javax.ejb.EJBException e) {
 			fail();
-		}*/
+		}
 	}
 }
