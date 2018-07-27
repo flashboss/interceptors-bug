@@ -18,9 +18,4 @@ public class OKInterceptor {
 	public Object aroundInvoke(InvocationContext ic) throws Exception {
 		return ic.proceed();
 	}
-
-	@AroundConstruct
-	public Object aroundConstruct(InvocationContext ic) throws Exception {
-		return ic.proceed();
-	}
 }
