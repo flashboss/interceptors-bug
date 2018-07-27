@@ -10,7 +10,7 @@ public class ItemServiceBean {
 	public void ok() {
 	}
 
-	@Interceptors({ NotOKInterceptor.class })
+	@NotOK
 	public void notOk() {
 	}
 

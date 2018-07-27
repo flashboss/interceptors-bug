@@ -17,7 +17,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import it.vige.injection.interceptors.ItemServiceBean;
-import it.vige.injection.interceptors.NotOK;
 
 @RunWith(Arquillian.class)
 public class InterceptorsTestCase {
@@ -27,7 +26,6 @@ public class InterceptorsTestCase {
 	@Deployment
 	public static JavaArchive createCDIDeployment() {
 		final JavaArchive jar = create(JavaArchive.class, "interceptors-cdi-test.jar");
-		jar.addPackage(NotOK.class.getPackage());
 		jar.addPackage(ItemServiceBean.class.getPackage());
 		jar.addAsManifestResource(new FileAsset(new File("src/test/resources/META-INF/beans.xml")), "beans.xml");
 		return jar;
