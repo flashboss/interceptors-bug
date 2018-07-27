@@ -12,10 +12,6 @@ import it.vige.injection.interceptors.OK;
 public class ItemServiceBean implements ItemService {
 
 	@OK
-	public ItemServiceBean() {
-	}
-
-	@OK
 	@Override
 	public void create(String item) {
 	}
