@@ -16,9 +16,8 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import it.vige.injection.interceptors.ItemServiceBean;
 import it.vige.injection.interceptors.OK;
-import it.vige.injection.service.ItemService;
-import it.vige.injection.service.ItemServiceBean;
 
 @RunWith(Arquillian.class)
 public class InterceptorsTestCase {
@@ -29,7 +28,7 @@ public class InterceptorsTestCase {
 	public static JavaArchive createCDIDeployment() {
 		final JavaArchive jar = create(JavaArchive.class, "interceptors-cdi-test.jar");
 		jar.addPackage(OK.class.getPackage());
-		jar.addPackage(ItemService.class.getPackage());
+		jar.addPackage(ItemServiceBean.class.getPackage());
 		jar.addAsManifestResource(new FileAsset(new File("src/test/resources/META-INF/beans.xml")), "beans.xml");
 		return jar;
 	}
@@ -40,9 +39,8 @@ public class InterceptorsTestCase {
 	@Test
 	public void testInterceptor() {
 		logger.info("Start interceptor test");
-		String item = "testItem";
 		try {
-			itemService.create(item);
+			itemService.create();
 		} catch (javax.ejb.EJBException e) {
 			fail();
 		}
