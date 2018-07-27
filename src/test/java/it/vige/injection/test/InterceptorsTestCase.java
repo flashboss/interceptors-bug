@@ -18,6 +18,7 @@ import org.junit.runner.RunWith;
 
 import it.vige.injection.interceptors.OK;
 import it.vige.injection.service.ItemService;
+import it.vige.injection.service.ItemServiceBean;
 
 @RunWith(Arquillian.class)
 public class InterceptorsTestCase {
@@ -34,7 +35,7 @@ public class InterceptorsTestCase {
 	}
 
 	@Inject
-	private ItemService itemService;
+	private ItemServiceBean itemService;
 
 	@Test
 	public void testInterceptor() {
