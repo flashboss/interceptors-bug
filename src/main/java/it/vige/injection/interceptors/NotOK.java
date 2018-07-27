@@ -13,6 +13,6 @@ import javax.interceptor.InterceptorBinding;
 @Retention(RUNTIME)
 @Target({ METHOD, TYPE, CONSTRUCTOR })
 @InterceptorBinding
-public @interface OK {
+public @interface NotOK {
 
 }

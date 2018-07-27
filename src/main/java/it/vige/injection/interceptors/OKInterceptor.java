@@ -1,8 +1,5 @@
 package it.vige.injection.interceptors;
 
-import static javax.interceptor.Interceptor.Priority.LIBRARY_BEFORE;
-
-import javax.annotation.Priority;
 import javax.interceptor.AroundConstruct;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
@@ -15,8 +12,6 @@ import javax.interceptor.InvocationContext;
  * @author Luca Stancapiano
  */
 @Interceptor
-@OK
-@Priority(LIBRARY_BEFORE)
 public class OKInterceptor {
 
 	@AroundInvoke

@@ -6,12 +6,12 @@ import javax.interceptor.Interceptors;
 @Stateless
 public class ItemServiceBean {
 
-	@OK
-	public void create() {
+	@Interceptors({ OKInterceptor.class })
+	public void ok() {
 	}
 
-	@Interceptors({ NotOKInterceptor.class })
-	public void getExcludedList() {
+	@NotOK
+	public void notOk() {
 	}
 
 }

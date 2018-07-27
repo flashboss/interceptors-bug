@@ -17,7 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import it.vige.injection.interceptors.ItemServiceBean;
-import it.vige.injection.interceptors.OK;
+import it.vige.injection.interceptors.NotOK;
 
 @RunWith(Arquillian.class)
 public class InterceptorsTestCase {
@@ -27,7 +27,7 @@ public class InterceptorsTestCase {
 	@Deployment
 	public static JavaArchive createCDIDeployment() {
 		final JavaArchive jar = create(JavaArchive.class, "interceptors-cdi-test.jar");
-		jar.addPackage(OK.class.getPackage());
+		jar.addPackage(NotOK.class.getPackage());
 		jar.addPackage(ItemServiceBean.class.getPackage());
 		jar.addAsManifestResource(new FileAsset(new File("src/test/resources/META-INF/beans.xml")), "beans.xml");
 		return jar;
@@ -37,12 +37,22 @@ public class InterceptorsTestCase {
 	private ItemServiceBean itemService;
 
 	@Test
-	public void testInterceptor() {
-		logger.info("Start interceptor test");
+	public void testOk() {
+		logger.info("Start Ok test");
 		try {
-			itemService.create();
+			itemService.ok();
 		} catch (javax.ejb.EJBException e) {
-			fail();
+			fail("test Ok failed");
+		}
+	}
+
+	@Test
+	public void testNotOk() {
+		logger.info("Start not Ok test");
+		try {
+			itemService.notOk();
+		} catch (javax.ejb.EJBException e) {
+			fail("test not Ok failed");
 		}
 	}
 }
