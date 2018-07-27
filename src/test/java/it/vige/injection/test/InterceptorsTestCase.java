@@ -7,6 +7,7 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.util.logging.Logger;
 
+import javax.ejb.EJBException;
 import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -39,7 +40,7 @@ public class InterceptorsTestCase {
 		logger.info("Start Ok test");
 		try {
 			itemService.ok();
-		} catch (javax.ejb.EJBException e) {
+		} catch (EJBException e) {
 			fail("test Ok failed");
 		}
 	}
@@ -49,7 +50,7 @@ public class InterceptorsTestCase {
 		logger.info("Start not Ok test");
 		try {
 			itemService.notOk();
-		} catch (javax.ejb.EJBException e) {
+		} catch (EJBException e) {
 			fail("test not Ok failed");
 		}
 	}
