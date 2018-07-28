@@ -35,7 +35,7 @@ public class InterceptorsTestCase {
 	@Inject
 	private SimpleService simpleService;
 
-	//@Test
+	@Test
 	public void testOk() {
 		logger.info("Start Ok test");
 		try {
@@ -50,7 +50,7 @@ public class InterceptorsTestCase {
 		logger.info("Start not Ok test");
 		try {
 			simpleService.notOk();
-		} catch (EJBException e) {
+	    } catch (EJBException e) {
 			fail("test not Ok failed");
 		}
 	}
