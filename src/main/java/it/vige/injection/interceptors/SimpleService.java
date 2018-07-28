@@ -4,7 +4,7 @@ import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;
 
 @Stateless
-public class ItemServiceBean {
+public class SimpleService {
 
 	@Interceptors({ OKInterceptor.class })
 	public void ok() {
